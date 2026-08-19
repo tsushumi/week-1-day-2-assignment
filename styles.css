@@ -1,0 +1,164 @@
+/* ==========================================================================
+   styles.css — business-card.html
+   Design tokens: brand accent is a deep forest green, page background is a
+   soft sage-tinted grey. Poppins for the name/headings, Inter for body copy.
+   ========================================================================== */
+:root {
+  /* Centralising colours as variables makes them easy to reuse and tweak */
+  --brand: #2f6f4f;         /* deep forest green — the accent colour */
+  --brand-dark: #234f39;    /* darker shade, used for link hover states */
+  --bg: #f0f2f0;            /* page background — subtle, not pure white */
+  --card-bg: #ffffff;       /* card background */
+  --text: #1f2933;          /* main text colour, near-black for readability */
+  --text-muted: #5f6b7a;    /* softer grey for secondary text */
+  --border: #e2e6e3;        /* light border colour for inputs etc. */
+}
+/* Reset default margin/padding and use a consistent box model everywhere */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;   /* body font, per Task 1 requirement */
+  background-color: var(--bg);        /* page background colour (not white) */
+  color: var(--text);
+  min-height: 100vh;
+
+  /* Centre the card both horizontally and vertically using Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+/* ---------- Card container ---------- */
+.card {
+  width: 100%;
+  max-width: 400px;                 /* card container max-width, per spec */
+  background-color: var(--card-bg);
+  border-radius: 16px;              /* rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* subtle box shadow */
+  padding: 2rem;                    /* internal spacing */
+  border-left: 4px solid var(--brand); /* 4px solid brand-colour left border */
+}
+/* ---------- Header / name area ---------- */
+header h1 {
+  font-family: 'Poppins', sans-serif; /* custom Google Font for the name */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+header h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--brand);
+  margin-top: 0.25rem;
+}
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+/* ---------- Section headings ---------- */
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+main section,
+main nav {
+  margin-bottom: 1.75rem; /* consistent vertical spacing between blocks */
+}
+/* ---------- Contact info ---------- */
+section p {
+  margin: 0.4rem 0;       /* consistent spacing between contact lines */
+  font-size: 0.95rem;
+}
+address {
+  font-style: normal;     /* browsers italicise <address> by default; undo that */
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+/* ---------- Links (contact + nav) ---------- */
+a {
+  color: var(--brand);
+  text-decoration: none;       /* no underlines, per spec */
+  font-weight: 500;
+  transition: color 0.2s ease; /* smooth colour change on hover */
+}
+a:hover {
+  color: var(--brand-dark);    /* hover effect: colour change */
+}
+nav ul {
+  list-style: none;   /* remove default bullet points for the nav links */
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+nav a {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;   /* pill-shaped nav links */
+  font-size: 0.85rem;
+}
+nav a:hover {
+  border-color: var(--brand);
+  background-color: rgba(47, 111, 79, 0.06);
+}
+/* ---------- Contact form (bonus) ---------- */
+form label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--brand);   /* highlight the active field in brand colour */
+}
+form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+form button {
+  background-color: var(--brand);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+form button:hover {
+  background-color: var(--brand-dark);
+}
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}

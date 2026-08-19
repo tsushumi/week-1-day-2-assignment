@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <title>Business Card - Brian Mose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Loads "Poppins" (used for the name/headings) and "Inter" (used for body text) from Google Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Links this page to the external stylesheet where all the CSS rules live -->
+</head>
+
+<body>
+
+  <div class="card">
+    <!-- Wraps the whole card in one container so it can be styled as a single boxed unit -->
+    <header>
+      <h1>Brian Mose</h1>
+      <h2>Aspiring Full-Stack Developer</h2>
+    </header>
+
+    <hr>
+    <main>
+      <section>
+        <h3>Contact Info</h3>
+        <p>Email: <a href="mailto:Brian.Mose@example.com">Brian.Mose@example.com</a></p>
+        <p>Phone: <a href="tel:+254700123456">+254 700 123 456</a></p>
+        <address>
+          Nairobi, Kenya
+        </address>
+      </section>
+
+      <nav>
+        <h3>Find Me Online</h3>
+        <ul>
+          <li><a href="https://github.com/Brian Mose" target="_blank">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/Brian Mose" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/Brian Mose" target="_blank">Twitter / X</a></li>
+          <!-- target="_blank" opens each link in a new browser tab instead of navigating away -->
+        </ul>
+      </nav>
+
+      <section>
+        <!-- Bonus section: a simple contact form (no backend, purely front-end markup) -->
+        <h3>Contact Me</h3>
+        <form action="#" method="POST">
+          <!-- action="#" means the form doesn't submit anywhere real (placeholder);
+               method="POST" is the HTTP method that would be used to send the data -->
+
+          <p>
+            <label for="visitor-name">Your Name</label><br>
+            <!-- for="visitor-name" links this label to the input with id="visitor-name",
+                 so clicking the label focuses the input (also helps accessibility) -->
+            <input type="text" id="visitor-name" name="visitor-name" placeholder="Enter your full name">
+          </p>
+          <p>
+            <label for="visitor-email">Your Email</label><br>
+            <input type="email" id="visitor-email" name="visitor-email" placeholder="you@example.com">
+          </p>
+          <p>
+            <label for="visitor-message">Your Message</label><br>
+            <textarea id="visitor-message" name="visitor-message" placeholder="Write your message here"></textarea>
+          </p>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>Thanks for stopping by my digital business card.</p>
+    </footer>
+
+  </div>
+</body>
+</html>

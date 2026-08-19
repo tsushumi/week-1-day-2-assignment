@@ -1,0 +1,162 @@
+/* ==========================================================================
+   pricing.css — pricing.html
+   Same design tokens as the business card (brand = deep forest green) so the
+   two pages feel like one identity.
+   ========================================================================== */
+:root {
+  --brand: #2f6f4f;
+  --brand-dark: #234f39;
+  --bg: #f0f2f0;
+  --card-bg: #ffffff;
+  --pro-bg: #eaf3ee;      /* faint green tint to set the Pro card apart */
+  --text: #1f2933;
+  --text-muted: #5f6b7a;
+  --border: #e2e6e3;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 3rem 1.5rem;   /* keeps content off the screen edges, incl. mobile */
+}
+.page-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+.page-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+}
+/* ---------- Flexbox layout for the three cards ---------- */
+.pricing-container {
+  display: flex;               /* Flexbox row layout, per Task 2 spec */
+  justify-content: center;     /* centres the group of cards horizontally */
+  align-items: flex-start;     /* cards align to the top, ignoring height diffs */
+  gap: 2rem;                   /* even spacing between cards */
+  flex-wrap: wrap;             /* allows graceful wrapping before the media query kicks in */
+}
+/* ---------- Individual pricing card ---------- */
+.pricing-card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  width: 100%;
+  max-width: 350px;            /* desktop card width, per Task 3 spec */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Bonus: smooth transition for the hover scale/shadow effects below */
+  transition: all 0.3s ease;
+}
+/* Bonus hover effect: scale up + deeper shadow on hover */
+.pricing-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+/* Pro card: visually highlighted (larger, tinted background) */
+.pricing-card.pro {
+  background-color: var(--pro-bg);
+  border-color: var(--brand);
+  transform: scale(1.05);      /* slightly larger than its neighbours by default */
+}
+.pricing-card.pro:hover {
+  transform: scale(1.08);      /* scales up a bit further from its already-larger base */
+}
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--brand);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+}
+.pricing-card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.price {
+  font-size: 2.2rem;           /* large font for the price, per spec */
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: var(--brand);
+  margin-bottom: 1.5rem;
+}
+.price span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+}
+.features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+.features li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.features li:last-child {
+  border-bottom: none;
+}
+/* ---------- Button ---------- */
+.pricing-card button {
+  width: 100%;
+  background-color: var(--brand);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+/* Bonus: button colour darkens on hover */
+.pricing-card button:hover {
+  background-color: var(--brand-dark);
+}
+/* ==========================================================================
+   Responsive behaviour (Task 3)
+   Above 768px: 3 columns side by side (handled by the flex row above).
+   At or below 768px: cards stack into a single column, full width.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .pricing-container {
+    flex-direction: column;   /* stack cards vertically */
+    align-items: center;
+  }
+
+  .pricing-card {
+    max-width: 100%;          /* full width on mobile, per spec */
+  }
+
+  .pricing-card.pro {
+    transform: none;          /* remove the desktop "larger" scaling on mobile */
+  }
+
+  .pricing-card.pro:hover {
+    transform: scale(1.03);   /* keep a smaller hover bump on mobile */
+  }
+}
